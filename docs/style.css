@@ -1,0 +1,254 @@
+/*General pages*/
+@font-face {
+    font-family: Righteous;
+    src: url(fonts/Righteous.ttf);
+}
+
+
+body{
+	background-color:#f4f4f4;
+	color:#555;
+	font-family:arial,helvetica;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0;
+}
+
+#main-header{
+	color:#ffdd23;
+	font-size:25px;
+	font-family:Righteous;
+
+}
+
+span{
+	color:#000;
+}
+
+#navbar{
+	background-color:#333;
+	color:#fff;
+}
+
+#navbar ul{
+	padding:0;
+	list-style: none;
+}
+
+#navbar li{
+	display:inline;
+}
+
+#navbar a{
+	color:#fff;
+	text-decoration: none;
+	font-size:18px;
+	padding-right:25px;
+}
+
+#navbar a:hover{
+	color:#ffdd23;
+}
+
+
+/*Index*/
+#showcase{
+	
+	background-image:url('images/SiteBanner01.jpg');
+	background-position:center;
+	min-height:300px;
+	margin-bottom:30px;
+	text-align:center;
+}
+
+#main{
+	float:left;
+	width:70%;
+	padding:0 30px;
+	box-sizing: border-box;
+}
+
+#sidebar{
+	float:right;
+	width:30%;
+	background: #333;
+	color:#fff;
+	padding:30px;
+	box-sizing: border-box;
+	margin-top:15px;
+	font-size:25px;
+	line-height: 1em;
+}
+#sidebar_table{
+	float:center;
+	background: #333;
+	color:#fff;
+	padding:15px;
+	box-sizing: border-box;
+	margin-top:15px;
+	font-size:25px;
+	line-height: 1em;
+}
+#climateWindow{
+	float:right;
+	width:20%;
+	background-image: linear-gradient(#61698b,#3c4152) ;
+	color:#fff;
+	padding:10px;
+	box-sizing: border-box;
+	font-size:50px;
+	border-radius: 12px;
+	border-style : solid;
+	border-color : black;
+
+}
+
+
+.climate_degree{
+	text-align: center;
+	margin : 35px;
+	font-size: 70px;
+	
+}
+
+.humid_icon{
+	height:50px;
+    width:50px;
+	display:inline-block;
+	transform:translate(150%, 40%);
+}
+
+
+
+.climate_humid{
+	font-size: 20px;
+	display:inline-block;
+	transform:translate(290%, 10%);
+}
+
+/*Selector*/
+
+
+/*Control*/
+.image{
+	height : 200px;
+	width : 300px;
+	border : 5px;
+	border-style : solid;
+	border-color : black;
+	border-radius: 12px;
+}
+
+.container{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+}
+
+.module panels{
+	display : inline-block;
+}
+
+.module{
+	//transform: translate(0%, -50%);
+}
+
+
+
+.button{
+	height:100px;
+    width:100px;
+	background-size: 100px 100px;
+	padding: 0;
+	border: none;
+	margin: 0px 15px;
+	transform: translate(0%, -50%);
+}
+
+.water{
+	background:url(images/WaterVector.svg) no-repeat;
+}
+.light{
+	background:url(images/bulb.svg) no-repeat;
+}
+.save{
+	background:url(images/save.svg) no-repeat;
+}
+.camera{
+	background:url(images/camera.svg) no-repeat;
+}
+
+#control_panel{
+	padding:0px;
+	list-style:none;
+
+}
+#debug{
+	margin-bottom : 0px;
+	
+}
+
+
+
+#control_panel li{
+	color: #191919;
+	font-size:25px;
+	background-image: linear-gradient(to bottom right, #56ab2f, #a8e063);
+	width:95%;
+	padding:10px;
+	margin:15px;
+	border : 5px;
+	border-style : solid;
+	border-color : black;
+	border-radius: 12px;
+}
+
+@media only screen and (max-device-width:480px){
+	/*General pages*/
+	#main-header{
+		font-size:50px;
+	}
+	#navbar ul{
+		padding:10px 0px;
+	}
+	#navbar a{
+		font-size:50px;
+	}
+	/*Index page*/
+	#main{
+	width:100%;
+	padding:0 30px;
+	box-sizing: border-box;
+	font-size:40px;
+	}
+	#sidebar{
+	width:60%;
+	float : left;
+	padding:30px;
+	box-sizing: border-box;
+	margin-top:15px;
+	font-size:50px;
+	}
+	/*Control page*/
+	.module{
+		transform: translate(0%, 0%);
+	}
+	.image{
+		height : 300px;
+		width : 450px;
+		display: block;
+	}
+	.button{
+		height:150px;
+		width:150px;
+		background-size: 150px 150px;
+		margin : 15px;
+	}
+	#control_panel li{
+		font-size:40px;
+		background-image: linear-gradient(to bottom right, #e9d362, #333333);
+		width:90%;
+	}
+}
+/*For some reason it wont pick up the default value*/
+@media only screen and (min-device-width:480px){.button{background-size: 100px 100px;}}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<script language="javascript" type="text/javascript" src="main.js"></script>
+<html>
+	<head>
+		
+		<title>
+			Farm Monitor
+		</title>
+		<link rel="shortcut icon" type="image/jpg" href="images/favicon.jpg">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<script>
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+		</script>
+		
+	</head>
+	<body onload="mode()">
+		<header id="main-header">
+			<div class="container">
+				<h1>Farm <span>Monitor</span></h1>
+			</div>
+			
+			
+		</header>
+		
+		<nav id="navbar">
+			<div class="container">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="briefing.html">Briefing</a></a></li>
+					<li><a href="control.html">Control</a></a></li>
+					<li><a href="about.html">About</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<ul id="control_panel">
+				<li>
+					<h1>
+						Raspberry
+						
+						<select id="mode" onchange="mode();">
+						  <option value="auto">Auto</option>
+						  <option value="schedule">Schedule</option>
+						  <option value="manual">Manual</option>
+						</select>
+					</h1>
+					
+					<div class = "module panels">
+						
+						<img src="images/rasp.jpg" class = "image">
+						
+	
+
+							<button class="button water" id="water_button" type="button" onclick="regar(this)"></button>
+							
+														
+							<select class="selectors" id="water_start_time">
+							  <option value="default">Start Time</option>
+							  <option value="00">00:00</option>
+							  <option value="01">01:00</option>
+							  <option value="02">02:00</option>
+							  <option value="03">03:00</option>
+							  <option value="04">04:00</option>
+							  <option value="05">05:00</option>
+							  <option value="06">06:00</option>
+							  <option value="07">07:00</option>
+							  <option value="08">08:00</option>
+							  <option value="09">09:00</option>
+							  <option value="10">10:00</option>
+							  <option value="11">11:00</option>
+							  <option value="12">12:00</option>
+							  <option value="13">13:00</option>
+							  <option value="14">14:00</option>
+							  <option value="15">15:00</option>
+							  <option value="16">16:00</option>
+							  <option value="17">17:00</option>
+							  <option value="18">18:00</option>
+							  <option value="19">19:00</option>
+							  <option value="20">20:00</option>
+							  <option value="21">21:00</option>
+							  <option value="22">22:00</option>
+							  <option value="23">23:00</option>
+							  <option value ="666">Demo</option>
+							</select>
+							
+							<select class="selectors" id="water_period">
+							  <option value="default">Period</option>
+							  <option value="001">1h</option>
+							  <option value="002">2h</option>
+							  <option value="006">6h</option>
+							  <option value="012">12h</option>
+							  <option value="024">24h	(1 day)</option>
+							  <option value="048">48h	(2 day)</option>
+							  <option value="072">72h	(3 day)</option>
+							  <option value="168">168h	(1 week)</option>
+							  <option value="000">Stop</option>
+							</select>
+							
+
+
+							<button class="button light" id="light_button" type="button" onclick="iluminar(this)"></button>
+							
+							<select   class="selectors" id="light_start_time">
+							  <option value="default">Start Time</option>
+							  <option value="00">00:00</option>
+							  <option value="01">01:00</option>
+							  <option value="02">02:00</option>
+							  <option value="03">03:00</option>
+							  <option value="04">04:00</option>
+							  <option value="05">05:00</option>
+							  <option value="06">06:00</option>
+							  <option value="07">07:00</option>
+							  <option value="08">08:00</option>
+							  <option value="09">09:00</option>
+							  <option value="10">10:00</option>
+							  <option value="11">11:00</option>
+							  <option value="12">12:00</option>
+							  <option value="13">13:00</option>
+							  <option value="14">14:00</option>
+							  <option value="15">15:00</option>
+							  <option value="16">16:00</option>
+							  <option value="17">17:00</option>
+							  <option value="18">18:00</option>
+							  <option value="19">19:00</option>
+							  <option value="20">20:00</option>
+							  <option value="21">21:00</option>
+							  <option value="22">22:00</option>
+							  <option value="23">23:00</option>
+							  <option value ="666">Demo</option>
+							</select>
+							
+							<select class="selectors" id="light_period">
+							  <option value="default">Period</option>
+							  <option value="001">1h</option>
+							  <option value="002">2h</option>
+							  <option value="006">6h</option>
+							  <option value="012">12h</option>
+							  <option value="024">24h	(1 day)</option>
+							  <option value="048">48h	(2 day)</option>
+							  <option value="072">72h	(3 day)</option>
+							  <option value="168">168h	(1 week)</option>
+							  <option value="000">Stop</option>
+							</select>
+							
+							<button class="button save" id="save_button" type="button" onclick="save(this)"></button>
+						
+							<aside id="climateWindow">
+								<a class="weatherwidget-io" href="https://forecast7.com/en/40d42n3d70/madrid/" data-label_1="MADRID" data-label_2="WEATHER" data-mode="Current" data-theme="orange" >MADRID WEATHER</a>
+							</aside>
+
+					</div>
+					
+				</li>
+				
+				<li>
+					<h1>
+						Potatoes
+						
+						<select >
+						  <option value="auto">Auto</option>
+						  <option value="schedule">Schedule</option>
+						  <option value="manual">Manual</option>
+						</select>
+					</h1>
+					
+					<div class = "module panels">
+						
+						<img src="images/potato.jpg" class = "image">
+						
+	
+
+							<button class="button water" type="button" ></button>
+							
+														
+							<select class="selectors">
+
+							  <option value="3">03:00</option>
+							  <option value="4">04:00</option>
+							  <option value="5">05:00</option>
+							  <option value="6">06:00</option>
+							  <option value="7">07:00</option>
+							  <option value="8">08:00</option>
+							  <option value="9">09:00</option>
+							  <option value="10">10:00</option>
+							  <option value="11">11:00</option>
+							  <option value="12">12:00</option>
+							  <option value="13">13:00</option>
+							  <option value="14">14:00</option>
+							  <option value="15">15:00</option>
+							  <option value="16">16:00</option>
+							  <option value="17">17:00</option>
+							  <option value="18">18:00</option>
+							  <option value="19">19:00</option>
+							  <option value="20">20:00</option>
+							  <option value="21">21:00</option>
+							  <option value="22">22:00</option>
+							  <option value="23">23:00</option>
+							</select>
+							
+							<select class="selectors">
+
+							  <option value="6">6h</option>
+							  <option value="12">12h</option>
+							  <option value="24">24h	(1 day)</option>
+							  <option value="48">48h	(2 day)</option>
+							  <option value="72">72h	(3 day)</option>
+							  <option value="168">168h	(1 week)</option>
+							</select>
+							
+
+
+							<button class="button light"  type="button" ></button>
+							
+							<select class="selectors">
+
+							  <option value="6">06:00</option>
+							  <option value="7">07:00</option>
+							  <option value="8">08:00</option>
+							  <option value="9">09:00</option>
+							  <option value="10">10:00</option>
+							  <option value="11">11:00</option>
+							  <option value="12">12:00</option>
+							  <option value="13">13:00</option>
+							  <option value="14">14:00</option>
+							  <option value="15">15:00</option>
+							  <option value="16">16:00</option>
+							  <option value="17">17:00</option>
+							  <option value="18">18:00</option>
+							  <option value="19">19:00</option>
+							  <option value="20">20:00</option>
+							  <option value="21">21:00</option>
+							  <option value="22">22:00</option>
+							  <option value="23">23:00</option>
+							</select>
+							
+							<select class="selectors">
+
+							  <option value="6">6h</option>
+							  <option value="12">12h</option>
+							  <option value="24">24h	(1 day)</option>
+							  <option value="48">48h	(2 day)</option>
+							  <option value="72">72h	(3 day)</option>
+							  <option value="168">168h	(1 week)</option>
+							</select>
+							
+							<button class="button save"  type="button" ></button>
+						
+							<aside id="climateWindow">
+									<a class="weatherwidget-io" href="https://forecast7.com/en/40d42n3d70/madrid/" data-label_1="MADRID" data-label_2="WEATHER" data-mode="Current" data-theme="orange" >MADRID WEATHER</a>
+							
+							</aside>
+
+					</div>
+					
+				</li>
+
+				
+				<li>
+					<h1>
+					Peppers
+					</h1>
+					<img src="images/pimiento.jpg" class = "image">
+					<button class="button water"/>
+					<button class="button light"/>
+				</li>
+				<li>	<center>
+					<button type="button" onclick="add(this);">Add element</button>
+					</center>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
